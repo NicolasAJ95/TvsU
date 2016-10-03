@@ -4,15 +4,20 @@ using System.Collections;
 public class Recoger : MonoBehaviour {
 
 	public bool aBordo;
+	public bool activo;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		aBordo = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (gameObject.activeInHierarchy) 
+		{
+			activo = true;
+		}
 	}
 
 	void OnTriggerEnter(Collider c)
@@ -22,6 +27,8 @@ public class Recoger : MonoBehaviour {
 		{
 			Debug.Log ("Pasajero a bordo");
 			aBordo = true;
+			activo = false;
+			gameObject.SetActive (false);
 		}
 	}
 }
