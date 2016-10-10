@@ -11,27 +11,27 @@ public class GestorPasajeros : MonoBehaviour {
 	private int pasajero;
 	private int carrera;
 	private bool montado;
-	private bool activo;
+	private bool esperando;
 	private bool finCarrera;
+
+	void Awake ()
+	{
+		pasajero = Random.Range (0, puntosPasajero.Length);
+		Debug.Log (pasajero);
+		puntosPasajero [pasajero].SetActive (true);
+	}
 
 	// Use this for initialization
 	void Start () 
 	{
-		pasajero = Random.Range (0, puntosPasajero.Length+1);
-		puntosPasajero [pasajero].SetActive (true);
-		activo = puntosPasajero [pasajero].GetComponent<Recoger> ().activo;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		activo = puntosPasajero [pasajero].GetComponent<Recoger> ().activo;
-		montado=Recojido ();
-		if (!montado && !activo) {
-			pasajero = Random.Range (0, puntosPasajero.Length);
-			puntosPasajero [pasajero].SetActive (true);
-		}
-
+		Recogiendo ();
+		TerminarCarrera ();
 		if (montado) 
 		{
 			carrera = Random.Range (0, puntosDescarga.Length);
@@ -39,16 +39,28 @@ public class GestorPasajeros : MonoBehaviour {
 		}
 	}
 
-	bool Recojido ()
-	{
-		montado = puntosPasajero [pasajero].GetComponent<Recoger> ().aBordo;
-		return montado;
-	}
-
 	bool Arriva ()
 	{
-		finCarrera = puntosDescarga [carrera].GetComponent<Descargar> ();
-		activo = false;
-		return activo;
+		
+		if (finCarrera) 
+		{
+			esperando = false;
+		}
+		return esperando;
+	}
+
+	void Recogiendo (bool esperando)
+	{
+		esperando = puntosPasajero [pasajero].GetComponent<Recoger> ().esperando;
+		montado=puntosPasajero [pasajero].GetComponent<Recoger> ().aBordo;
+		if (!montado && esperando) {
+			pasajero = Random.Range (0, puntosPasajero.Length);
+			puntosPasajero [pasajero].SetActive (true);
+		}
+	}
+
+	void TerminarCarrera()
+	{
+		finCarrera = puntosDescarga [carrera].GetComponent<Descargar> ().finCarrera;
 	}
 }

@@ -20,6 +20,7 @@ public class Descargar : MonoBehaviour {
 		{
 			Debug.Log ("La carrera a finalizado");
 			finCarrera = true;
+			gameObject.SetActive (false);
 		}
 	}
 }
