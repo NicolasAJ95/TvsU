@@ -1,66 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GestorPasajeros : MonoBehaviour {
 
-	[SerializeField]
-	private GameObject[] puntosPasajero;
-	[SerializeField]
-	private GameObject[] puntosDescarga;
+    [SerializeField]
+    private GameObject[] puntosRecoger;
+    [SerializeField]
+    private GameObject[] puntosDescarga;
+    [SerializeField]
+    private Text scoreText;
 
-	private int pasajero;
-	private int carrera;
-	private bool montado;
-	private bool esperando;
-	private bool finCarrera;
+    private Vector3 posInicio;
+    private Vector3 posFin;
+    private float score;
+    
+    private void Start()
+    {
+        score = 0;
+        scoreText.text = "Score "+score;
+        CarroPasajeros.Recoger += ActivarFinCarrera;
+        int primerpasajero = Random.Range(0, 4);
+        puntosRecoger[primerpasajero].gameObject.SetActive(true);
+        posInicio = puntosRecoger[primerpasajero].gameObject.transform.position;
+    }
 
-	void Awake ()
-	{
-		pasajero = Random.Range (0, puntosPasajero.Length);
-		Debug.Log (pasajero);
-		puntosPasajero [pasajero].SetActive (true);
-	}
+    public void ActivarFinCarrera()
+    {
+        if (CarroPasajeros.pasajero)
+        {
+            for(int i = 0; i < puntosRecoger.Length; i++)
+            {
+                puntosRecoger[i].gameObject.SetActive(false);
+            }
+            int descarga = Random.Range(0, 4);
+            puntosDescarga[descarga].gameObject.SetActive(true);
+            posFin = puntosDescarga[descarga].gameObject.transform.position;
+            Score();
+            CarroPasajeros.pasajero = false;
+        }
+        else
+        {
+            for(int i = 0; i < puntosDescarga.Length; i++)
+            {
+                puntosDescarga[i].gameObject.SetActive(false);
+            }
+            int recogida = Random.Range(0, 4);
+            puntosRecoger[recogida].gameObject.SetActive(true);
+            posInicio = puntosRecoger[recogida].gameObject.transform.position;
+            CarroPasajeros.pasajero = true;
+        }
+    }
 
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		Recogiendo ();
-		TerminarCarrera ();
-		if (montado) 
-		{
-			carrera = Random.Range (0, puntosDescarga.Length);
-			puntosDescarga [carrera].SetActive (true);
-		}
-	}
-
-	bool Arriva ()
-	{
-		
-		if (finCarrera) 
-		{
-			esperando = false;
-		}
-		return esperando;
-	}
-
-	void Recogiendo ()
-	{
-		esperando = puntosPasajero [pasajero].GetComponent<Recoger> ().esperando;
-		montado=puntosPasajero [pasajero].GetComponent<Recoger> ().aBordo;
-		if (!montado && esperando) {
-			pasajero = Random.Range (0, puntosPasajero.Length);
-			puntosPasajero [pasajero].SetActive (true);
-		}
-	}
-
-	void TerminarCarrera()
-	{
-		finCarrera = puntosDescarga [carrera].GetComponent<Descargar> ().finCarrera;
-	}
+    public void Score()
+    {
+        score = (posFin - posInicio).magnitude;
+        scoreText.text = "Score " + score.ToString("N0");
+    }
 }
