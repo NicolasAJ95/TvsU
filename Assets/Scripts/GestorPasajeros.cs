@@ -49,7 +49,7 @@ public class GestorPasajeros : MonoBehaviour {
 		return esperando;
 	}
 
-	void Recogiendo (bool esperando)
+	void Recogiendo ()
 	{
 		esperando = puntosPasajero [pasajero].GetComponent<Recoger> ().esperando;
 		montado=puntosPasajero [pasajero].GetComponent<Recoger> ().aBordo;
