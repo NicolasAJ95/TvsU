@@ -10,19 +10,35 @@ public class GestorPasajeros : MonoBehaviour {
     private GameObject[] puntosDescarga;
     [SerializeField]
     private Text scoreText;
+    [SerializeField]
+    private Text scoreTextCarrera;
+    [SerializeField]
+    private float resta;
 
     private Vector3 posInicio;
     private Vector3 posFin;
     private float score;
+    private float scoreCarrera;
     
     private void Start()
     {
+        scoreCarrera = 0;
         score = 0;
         scoreText.text = "Score "+score;
+        scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera;
         CarroPasajeros.Recoger += ActivarFinCarrera;
         int primerpasajero = Random.Range(0, 4);
         puntosRecoger[primerpasajero].gameObject.SetActive(true);
         posInicio = puntosRecoger[primerpasajero].gameObject.transform.position;
+    }
+
+    private void Update()
+    {
+        if (scoreCarrera != 0)
+        {
+            scoreCarrera -= resta * Time.deltaTime;
+            scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
+        }
     }
 
     public void ActivarFinCarrera()
@@ -36,7 +52,7 @@ public class GestorPasajeros : MonoBehaviour {
             int descarga = Random.Range(0, 4);
             puntosDescarga[descarga].gameObject.SetActive(true);
             posFin = puntosDescarga[descarga].gameObject.transform.position;
-            Score();
+            ScoreCarrera();
             CarroPasajeros.pasajero = false;
         }
         else
@@ -47,14 +63,18 @@ public class GestorPasajeros : MonoBehaviour {
             }
             int recogida = Random.Range(0, 4);
             puntosRecoger[recogida].gameObject.SetActive(true);
+            score += scoreCarrera;
+            scoreText.text = "Score " + score.ToString("N0");
+            scoreCarrera = 0;
+            scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
             posInicio = puntosRecoger[recogida].gameObject.transform.position;
             CarroPasajeros.pasajero = true;
         }
     }
 
-    public void Score()
+    public void ScoreCarrera()
     {
-        score = (posFin - posInicio).magnitude;
-        scoreText.text = "Score " + score.ToString("N0");
+        scoreCarrera = (posFin - posInicio).magnitude;
+        scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
     }
 }

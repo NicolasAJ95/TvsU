@@ -27,11 +27,13 @@ public class CarroPasajeros : MonoBehaviour {
         {
             pasajero = true;
             CallEvent();
+            Debug.Log("El pasajero fue recogido");
         }
         if (c.gameObject.CompareTag("Descarga"))
         {
             pasajero = false;
             CallEvent();
+            Debug.Log("El pasajero fue descargado");
         }
     }
 }
