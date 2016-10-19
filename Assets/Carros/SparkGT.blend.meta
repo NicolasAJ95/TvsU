@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: a73dbcf965f56fa4c917e1ae40825812
+timeCreated: 1476857437
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BackLights
+    100002: Body
+    100004: Body_MeshPart0
+    100006: Body_MeshPart1
+    100008: Components
+    100010: FrontLights
+    100012: FrontWheelLeft
+    100014: FrontWheelRight
+    100016: LeftCylinderBack
+    100018: LeftCylinderFront
+    100020: LeftWheelBack
+    100022: RightCylinderBack
+    100024: RightCylinderFront
+    100026: RightWheelBack
+    100028: //RootNode
+    100030: Windows
+    100032: BackCylinderLeft
+    100034: BackCylinderRight
+    100036: BackWheelLeft
+    100038: BackWheelRight
+    100040: FrontCylinderLeft
+    100042: FrontCylinderRight
+    400000: BackLights
+    400002: Body
+    400004: Body_MeshPart0
+    400006: Body_MeshPart1
+    400008: Components
+    400010: FrontLights
+    400012: FrontWheelLeft
+    400014: FrontWheelRight
+    400016: LeftCylinderBack
+    400018: LeftCylinderFront
+    400020: LeftWheelBack
+    400022: RightCylinderBack
+    400024: RightCylinderFront
+    400026: RightWheelBack
+    400028: //RootNode
+    400030: Windows
+    400032: BackCylinderLeft
+    400034: BackCylinderRight
+    400036: BackWheelLeft
+    400038: BackWheelRight
+    400040: FrontCylinderLeft
+    400042: FrontCylinderRight
+    2300000: BackLights
+    2300002: Body_MeshPart0
+    2300004: Body_MeshPart1
+    2300006: Components
+    2300008: FrontLights
+    2300010: FrontWheelLeft
+    2300012: FrontWheelRight
+    2300014: LeftCylinderBack
+    2300016: LeftCylinderFront
+    2300018: LeftWheelBack
+    2300020: RightCylinderBack
+    2300022: RightCylinderFront
+    2300024: RightWheelBack
+    2300026: Windows
+    2300028: BackCylinderLeft
+    2300030: BackCylinderRight
+    2300032: BackWheelLeft
+    2300034: BackWheelRight
+    2300036: FrontCylinderLeft
+    2300038: FrontCylinderRight
+    3300000: BackLights
+    3300002: Body_MeshPart0
+    3300004: Body_MeshPart1
+    3300006: Components
+    3300008: FrontLights
+    3300010: FrontWheelLeft
+    3300012: FrontWheelRight
+    3300014: LeftCylinderBack
+    3300016: LeftCylinderFront
+    3300018: LeftWheelBack
+    3300020: RightCylinderBack
+    3300022: RightCylinderFront
+    3300024: RightWheelBack
+    3300026: Windows
+    3300028: BackCylinderLeft
+    3300030: BackCylinderRight
+    3300032: BackWheelLeft
+    3300034: BackWheelRight
+    3300036: FrontCylinderLeft
+    3300038: FrontCylinderRight
+    4300000: RightCylinderBack
+    4300002: RightWheelBack
+    4300004: RightCylinderFront
+    4300006: LeftCylinderFront
+    4300008: FrontWheelLeft
+    4300010: BackLights
+    4300012: Components
+    4300014: LeftCylinderBack
+    4300016: Windows
+    4300018: LeftWheelBack
+    4300020: FrontWheelRight
+    4300022: Body_MeshPart0
+    4300024: Body_MeshPart1
+    4300026: FrontLights
+    4300028: BackWheelRight
+    4300030: BackCylinderRight
+    4300032: FrontCylinderRight
+    4300034: FrontCylinderLeft
+    4300036: BackCylinderLeft
+    4300038: BackWheelLeft
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
