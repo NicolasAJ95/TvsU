@@ -71,6 +71,11 @@ namespace UnityStandardAssets.Vehicles.Car
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
         }
 
+        private void Update()
+        {
+            Debug.Log(CurrentSpeed);
+        }
+
 
         private void GearChanging()
         {
