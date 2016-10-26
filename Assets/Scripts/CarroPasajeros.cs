@@ -32,7 +32,6 @@ public class CarroPasajeros : MonoBehaviour {
 
     void OnTriggerStay(Collider c)
     {
-        Debug.Log("Choco con algo");
         if (c.gameObject.CompareTag("Pasajero") && m_Car.CurrentSpeed<=2f)
         {
             pasajero = true;

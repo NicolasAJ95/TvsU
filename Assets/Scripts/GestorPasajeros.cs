@@ -14,6 +14,8 @@ public class GestorPasajeros : MonoBehaviour {
     private Text scoreTextCarrera;
     [SerializeField]
     private float resta;
+    [SerializeField]
+    private Text mensaje;
 
     private Vector3 posInicio;
     private Vector3 posFin;
@@ -45,6 +47,7 @@ public class GestorPasajeros : MonoBehaviour {
     {
         if (CarroPasajeros.pasajero)
         {
+            mensaje.text = "Recogiste un pasajero";
             for(int i = 0; i < puntosRecoger.Length; i++)
             {
                 puntosRecoger[i].gameObject.SetActive(false);
@@ -57,7 +60,8 @@ public class GestorPasajeros : MonoBehaviour {
         }
         else
         {
-            for(int i = 0; i < puntosDescarga.Length; i++)
+            mensaje.text = "Dejaste a un pasajero";
+            for (int i = 0; i < puntosDescarga.Length; i++)
             {
                 puntosDescarga[i].gameObject.SetActive(false);
             }
