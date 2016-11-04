@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -55,6 +56,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
+        public Text velocidadTXT;
+
         // Use this for initialization
         private void Start()
         {
@@ -73,9 +76,16 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void Update()
         {
+            ObtenerVelocidad();
             Debug.Log(CurrentSpeed);
         }
 
+        public void ObtenerVelocidad()
+        {
+            int velocidad;
+            velocidad = (int)CurrentSpeed;
+            velocidadTXT.text = velocidad.ToString();     
+        }
 
         private void GearChanging()
         {
