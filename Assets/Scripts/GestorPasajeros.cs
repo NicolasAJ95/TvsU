@@ -32,11 +32,6 @@ public class GestorPasajeros : MonoBehaviour {
         int primerpasajero = Random.Range(0, 4);
         puntosRecoger[primerpasajero].gameObject.SetActive(true);
         posInicio = puntosRecoger[primerpasajero].gameObject.transform.position;
-        int segundopasajero = Random.Range(0, 4);
-        if (primerpasajero == segundopasajero)
-            segundopasajero += 1;
-        puntosRecoger[segundopasajero].gameObject.SetActive(true);
-        posInicio = puntosRecoger[segundopasajero].gameObject.transform.position;
     }
 
     private void Update()

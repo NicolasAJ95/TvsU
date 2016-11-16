@@ -41,7 +41,6 @@ public class CarroPasajeros : MonoBehaviour {
         {
             pasajero = false;
             CallEvent();
-            Debug.Log("El pasajero fue descargado");
         }
     }
 }
