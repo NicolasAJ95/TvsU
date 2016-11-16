@@ -36,7 +36,6 @@ public class CarroPasajeros : MonoBehaviour {
         {
             pasajero = true;
             CallEvent();
-            Debug.Log("El pasajero fue recogido");
         }
         if (c.gameObject.CompareTag("Descarga") && m_Car.CurrentSpeed<=2f)
         {
