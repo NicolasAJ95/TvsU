@@ -7,10 +7,10 @@ public class CarroPasajerosP2 : MonoBehaviour
 {
 
     public delegate void InicioCarrera();
-    public static event InicioCarrera Recoger;
+    public static event InicioCarrera RecogerP2;
 
     private CarController m_Car;
-    public static bool pasajero;
+    public static bool pasajeroP2;
 
     private void Awake()
     {
@@ -20,27 +20,27 @@ public class CarroPasajerosP2 : MonoBehaviour
 
     private void Start()
     {
-        pasajero = false;
+        pasajeroP2 = false;
     }
 
     private void CallEvent()
     {
-        if (Recoger != null)
+        if (RecogerP2 != null)
         {
-            Recoger();
+            RecogerP2();
         }
     }
 
     void OnTriggerStay(Collider c)
     {
-        if (c.gameObject.CompareTag("PasajeroP2") && m_Car.CurrentSpeed <= 2f)
+        if (c.gameObject.CompareTag("Pasajero") && m_Car.CurrentSpeed <= 2f)
         {
-            pasajero = true;
+            pasajeroP2 = true;
             CallEvent();
         }
-        if (c.gameObject.CompareTag("DescargaP2") && m_Car.CurrentSpeed <= 2f)
+        if (c.gameObject.CompareTag("Descarga") && m_Car.CurrentSpeed <= 2f)
         {
-            pasajero = false;
+            pasajeroP2 = false;
             CallEvent();
         }
     }

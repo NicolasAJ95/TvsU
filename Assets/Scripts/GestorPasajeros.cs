@@ -17,18 +17,38 @@ public class GestorPasajeros : MonoBehaviour {
     [SerializeField]
     private Text mensaje;
 
+    [SerializeField]
+    private Text scoreText2;
+    [SerializeField]
+    private Text scoreTextCarrera2;
+    [SerializeField]
+    private float resta2;
+    [SerializeField]
+    private Text mensaje2;
+
     private Vector3 posInicio;
     private Vector3 posFin;
     private float score;
     private float scoreCarrera;
-    
+
+    private float score2;
+    private float scoreCarrera2;
+
+
     private void Start()
     {
         scoreCarrera = 0;
         score = 0;
         scoreText.text = "Score "+score;
         scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera;
+
+        scoreCarrera2 = 0;
+        score2 = 0;
+        scoreText2.text = "Score " + score2;
+        scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2;
+
         CarroPasajeros.Recoger += ActivarFinCarrera;
+        CarroPasajerosP2.RecogerP2 += ActivarFinCarreraP2;
         int primerpasajero = Random.Range(0, 4);
         puntosRecoger[primerpasajero].gameObject.SetActive(true);
         posInicio = puntosRecoger[primerpasajero].gameObject.transform.position;
@@ -36,10 +56,16 @@ public class GestorPasajeros : MonoBehaviour {
 
     private void Update()
     {
-        if (scoreCarrera != 0)
+        if (scoreCarrera > 0)
         {
             scoreCarrera -= resta * Time.deltaTime;
             scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
+        }
+
+        if (scoreCarrera2 > 0)
+        {
+            scoreCarrera2 -= resta * Time.deltaTime;
+            scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
         }
     }
 
@@ -48,7 +74,7 @@ public class GestorPasajeros : MonoBehaviour {
         if (CarroPasajeros.pasajero)
         {
             mensaje.text = "Recogiste un pasajero";
-            for(int i = 0; i < puntosRecoger.Length; i++)
+            for (int i = 0; i < puntosRecoger.Length; i++)
             {
                 puntosRecoger[i].gameObject.SetActive(false);
             }
@@ -80,5 +106,44 @@ public class GestorPasajeros : MonoBehaviour {
     {
         scoreCarrera = (posFin - posInicio).magnitude;
         scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
+    }
+
+    public void ActivarFinCarreraP2()
+    {
+        if (CarroPasajerosP2.pasajeroP2)
+        {
+            mensaje.text = "Recogiste un pasajero";
+            for (int i = 0; i < puntosRecoger.Length; i++)
+            {
+                puntosRecoger[i].gameObject.SetActive(false);
+            }
+            int descarga = Random.Range(0, 4);
+            puntosDescarga[descarga].gameObject.SetActive(true);
+            posFin = puntosDescarga[descarga].gameObject.transform.position;
+            ScoreCarreraP2();
+            CarroPasajerosP2.pasajeroP2 = false;
+        }
+        else
+        {
+            mensaje.text = "Dejaste a un pasajero";
+            for (int i = 0; i < puntosDescarga.Length; i++)
+            {
+                puntosDescarga[i].gameObject.SetActive(false);
+            }
+            int recogida = Random.Range(0, 4);
+            puntosRecoger[recogida].gameObject.SetActive(true);
+            score2 += scoreCarrera2;
+            scoreText2.text = "Score " + score2.ToString("N0");
+            scoreCarrera2 = 0;
+            scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2.ToString("N0");
+            posInicio = puntosRecoger[recogida].gameObject.transform.position;
+            CarroPasajerosP2.pasajeroP2 = true;
+        }
+    }
+
+    public void ScoreCarreraP2()
+    {
+        scoreCarrera2 = (posFin - posInicio).magnitude;
+        scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2.ToString("N0");
     }
 }
