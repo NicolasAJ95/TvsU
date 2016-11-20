@@ -77,7 +77,6 @@ namespace UnityStandardAssets.Vehicles.Car
         private void Update()
         {
             ObtenerVelocidad();
-            Debug.Log(CurrentSpeed);
         }
 
         public void ObtenerVelocidad()

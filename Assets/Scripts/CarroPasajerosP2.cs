@@ -9,8 +9,12 @@ public class CarroPasajerosP2 : MonoBehaviour
     public delegate void InicioCarrera();
     public static event InicioCarrera RecogerP2;
 
+    public static float saludP2;
+    public static bool choqueP2;
     private CarController m_Car;
     public static bool pasajeroP2;
+    [SerializeField]
+    private CarController m_CarEnemi;
 
     private void Awake()
     {
@@ -20,7 +24,9 @@ public class CarroPasajerosP2 : MonoBehaviour
 
     private void Start()
     {
+        saludP2 = 4;
         pasajeroP2 = false;
+        choqueP2 = false;
     }
 
     private void CallEvent()
@@ -41,6 +47,16 @@ public class CarroPasajerosP2 : MonoBehaviour
         if (c.gameObject.CompareTag("Descarga") && m_Car.CurrentSpeed <= 2f)
         {
             pasajeroP2 = false;
+            CallEvent();
+        }
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.CompareTag("Player") && pasajeroP2 == true && m_CarEnemi.CurrentSpeed >= 10f)
+        {
+            saludP2 -= 1;
+            choqueP2 = true;
             CallEvent();
         }
     }
