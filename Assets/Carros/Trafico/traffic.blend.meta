@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 28c44b7614d27684984ccf7f3f9fadce
+timeCreated: 1479701000
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: car-coupe-blue
+    100002: car-coupe-orange
+    100004: car-coupe-silver
+    100006: car-hatchback-blue
+    100008: car-hatchback-orange
+    100010: car-hatchback-silver
+    100012: car-micro-blue
+    100014: car-micro-orange
+    100016: car-micro-red_001
+    100018: car-microcargo-blue
+    100020: car-microcargo-orange
+    100022: car-microcargo-silver
+    100024: car-microtransport-red
+    100026: car-microtransport-violet
+    100028: car-mpv-red
+    100030: car-mpv-violet
+    100032: car-normal-blue
+    100034: car-normal-green_001
+    100036: car-normal-silver
+    100038: car-pickup-smal-red
+    100040: car-pickup-smal-violet
+    100042: car-station-red
+    100044: car-station-violet
+    100046: car-van-red
+    100048: car-van-violet
+    100050: //RootNode
+    400000: car-coupe-blue
+    400002: car-coupe-orange
+    400004: car-coupe-silver
+    400006: car-hatchback-blue
+    400008: car-hatchback-orange
+    400010: car-hatchback-silver
+    400012: car-micro-blue
+    400014: car-micro-orange
+    400016: car-micro-red_001
+    400018: car-microcargo-blue
+    400020: car-microcargo-orange
+    400022: car-microcargo-silver
+    400024: car-microtransport-red
+    400026: car-microtransport-violet
+    400028: car-mpv-red
+    400030: car-mpv-violet
+    400032: car-normal-blue
+    400034: car-normal-green_001
+    400036: car-normal-silver
+    400038: car-pickup-smal-red
+    400040: car-pickup-smal-violet
+    400042: car-station-red
+    400044: car-station-violet
+    400046: car-van-red
+    400048: car-van-violet
+    400050: //RootNode
+    2300000: car-coupe-blue
+    2300002: car-coupe-orange
+    2300004: car-coupe-silver
+    2300006: car-hatchback-blue
+    2300008: car-hatchback-orange
+    2300010: car-hatchback-silver
+    2300012: car-micro-blue
+    2300014: car-micro-orange
+    2300016: car-micro-red_001
+    2300018: car-microcargo-blue
+    2300020: car-microcargo-orange
+    2300022: car-microcargo-silver
+    2300024: car-microtransport-red
+    2300026: car-microtransport-violet
+    2300028: car-mpv-red
+    2300030: car-mpv-violet
+    2300032: car-normal-blue
+    2300034: car-normal-green_001
+    2300036: car-normal-silver
+    2300038: car-pickup-smal-red
+    2300040: car-pickup-smal-violet
+    2300042: car-station-red
+    2300044: car-station-violet
+    2300046: car-van-red
+    2300048: car-van-violet
+    3300000: car-coupe-blue
+    3300002: car-coupe-orange
+    3300004: car-coupe-silver
+    3300006: car-hatchback-blue
+    3300008: car-hatchback-orange
+    3300010: car-hatchback-silver
+    3300012: car-micro-blue
+    3300014: car-micro-orange
+    3300016: car-micro-red_001
+    3300018: car-microcargo-blue
+    3300020: car-microcargo-orange
+    3300022: car-microcargo-silver
+    3300024: car-microtransport-red
+    3300026: car-microtransport-violet
+    3300028: car-mpv-red
+    3300030: car-mpv-violet
+    3300032: car-normal-blue
+    3300034: car-normal-green_001
+    3300036: car-normal-silver
+    3300038: car-pickup-smal-red
+    3300040: car-pickup-smal-violet
+    3300042: car-station-red
+    3300044: car-station-violet
+    3300046: car-van-red
+    3300048: car-van-violet
+    4300000: car-station-violet
+    4300002: car-mpv-violet
+    4300004: car-van-violet
+    4300006: car-pickup-smal-violet
+    4300008: car-microtransport-violet
+    4300010: car-hatchback-silver
+    4300012: car-micro-red_001
+    4300014: car-microcargo-silver
+    4300016: car-normal-silver
+    4300018: car-coupe-silver
+    4300020: car-station-red
+    4300022: car-mpv-red
+    4300024: car-van-red
+    4300026: car-pickup-smal-red
+    4300028: car-microtransport-red
+    4300030: car-hatchback-orange
+    4300032: car-micro-orange
+    4300034: car-microcargo-orange
+    4300036: car-normal-green_001
+    4300038: car-coupe-orange
+    4300040: car-coupe-blue
+    4300042: car-normal-blue
+    4300044: car-microcargo-blue
+    4300046: car-micro-blue
+    4300048: car-hatchback-blue
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
