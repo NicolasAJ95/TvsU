@@ -5,13 +5,44 @@ public class LocalizarPunto : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] objetivo;
+    private GameObject enemigo;
 
 	void Update () {
-        for (int i = 0; i < objetivo.Length; i++)
+
+        if (this.tag == "P1")
         {
-            if (objetivo[i].gameObject.activeInHierarchy==true)
+            if (CarroPasajerosP2.pasajeroP2)
             {
-                transform.LookAt(objetivo[i].transform);
+                enemigo = GameObject.FindGameObjectWithTag("Player2");
+                transform.LookAt(enemigo.transform);
+            }
+            else
+            {
+                for (int i = 0; i < objetivo.Length; i++)
+                {
+                    if (objetivo[i].gameObject.activeInHierarchy == true)
+                    {
+                        transform.LookAt(objetivo[i].transform);
+                    }
+                }
+            }
+        }
+        if (this.tag == "P2")
+        {
+            if (CarroPasajeros.pasajero)
+            {
+                enemigo = GameObject.FindGameObjectWithTag("Player");
+                transform.LookAt(enemigo.transform);
+            }
+            else
+            {
+                for (int i = 0; i < objetivo.Length; i++)
+                {
+                    if (objetivo[i].gameObject.activeInHierarchy == true)
+                    {
+                        transform.LookAt(objetivo[i].transform);
+                    }
+                }
             }
         }
 	}

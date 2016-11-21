@@ -4,10 +4,10 @@ namespace UnityStandardAssets.Utility
 {
 	public class SmoothFollow : MonoBehaviour
 	{
-
-		// The target we are following
-		[SerializeField]
-		private Transform target;
+        // The target we are following
+        private float uber;
+        [SerializeField]
+		private GameObject target;
 		// The distance in the x-z plane to the target
 		[SerializeField]
 		private float distance = 10.0f;
@@ -21,7 +21,53 @@ namespace UnityStandardAssets.Utility
 		private float heightDamping;
 
 		// Use this for initialization
-		void Start() { }
+		void Start()
+        {
+            uber = PlayerPrefs.GetFloat("Uber");
+            if (this.name == "Main Camera P1")
+            {
+                if (uber==1)
+                {
+                    target = GameObject.FindGameObjectWithTag("Player");
+                } else
+                {
+                    target = GameObject.FindGameObjectWithTag("Player2");
+                }
+            }
+            if (this.name == "Main Camera P2")
+            {
+                if (uber == 1)
+                {
+                    target = GameObject.FindGameObjectWithTag("Player2");
+                }
+                else
+                {
+                    target = GameObject.FindGameObjectWithTag("Player");
+                }
+            }
+            if (this.name == "MiniMap Camera P1")
+            {
+                if (uber == 1)
+                {
+                    target = GameObject.FindGameObjectWithTag("Player");
+                }
+                else
+                {
+                    target = GameObject.FindGameObjectWithTag("Player2");
+                }
+            }
+            if (this.name == "MiniMap Camera P2")
+            {
+                if (uber == 1)
+                {
+                    target = GameObject.FindGameObjectWithTag("Player2");
+                }
+                else
+                {
+                    target = GameObject.FindGameObjectWithTag("Player");
+                }
+            }
+        }
 
 		// Update is called once per frame
 		void LateUpdate()
@@ -31,8 +77,8 @@ namespace UnityStandardAssets.Utility
 				return;
 
 			// Calculate the current rotation angles
-			var wantedRotationAngle = target.eulerAngles.y;
-			var wantedHeight = target.position.y + height;
+			var wantedRotationAngle = target.transform.eulerAngles.y;
+			var wantedHeight = target.transform.position.y + height;
 
 			var currentRotationAngle = transform.eulerAngles.y;
 			var currentHeight = transform.position.y;
@@ -48,14 +94,14 @@ namespace UnityStandardAssets.Utility
 
 			// Set the position of the camera on the x-z plane to:
 			// distance meters behind the target
-			transform.position = target.position;
+			transform.position = target.transform.position;
 			transform.position -= currentRotation * Vector3.forward * distance;
 
 			// Set the height of the camera
 			transform.position = new Vector3(transform.position.x ,currentHeight , transform.position.z);
 
 			// Always look at the target
-			transform.LookAt(target);
+			transform.LookAt(target.transform);
 		}
 	}
 }

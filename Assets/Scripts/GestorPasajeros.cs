@@ -103,6 +103,7 @@ public class GestorPasajeros : MonoBehaviour {
             puntosRecoger[recogida].gameObject.SetActive(true);
             score += scoreCarrera;
             scoreText.text = "Score " + score.ToString("N0");
+            PlayerPrefs.SetFloat("ScoreP1", score);
             scoreCarrera = 0;
             scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
             posInicio = puntosRecoger[recogida].gameObject.transform.position;
@@ -158,6 +159,7 @@ public class GestorPasajeros : MonoBehaviour {
             puntosRecoger[recogida].gameObject.SetActive(true);
             score2 += scoreCarrera2;
             scoreText2.text = "Score " + score2.ToString("N0");
+            PlayerPrefs.SetFloat("ScoreP2", score2);
             scoreCarrera2 = 0;
             scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2.ToString("N0");
             posInicio = puntosRecoger[recogida].gameObject.transform.position;
