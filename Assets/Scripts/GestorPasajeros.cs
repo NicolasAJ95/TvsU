@@ -8,8 +8,13 @@ public class GestorPasajeros : MonoBehaviour {
     private GameObject[] puntosRecoger;
     [SerializeField]
     private GameObject[] puntosDescarga;
+    [Header("Vida Uber")]
     [SerializeField]
     private Sprite[] vida;
+
+    [Header("Vida Taxi")]
+    [SerializeField]
+    private Sprite[] vidaT;
 
     [Header("Canvas Player1")]
     [SerializeField]
@@ -43,6 +48,19 @@ public class GestorPasajeros : MonoBehaviour {
     private float score2;
     private float scoreCarrera2;
 
+    static GestorPasajeros instance = null;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -50,11 +68,13 @@ public class GestorPasajeros : MonoBehaviour {
         score = 0;
         scoreText.text = "Score "+score;
         scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera;
+        PlayerPrefs.SetFloat("ScoreP1", score);
 
         scoreCarrera2 = 0;
         score2 = 0;
         scoreText2.text = "Score " + score2;
         scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2;
+        PlayerPrefs.SetFloat("ScoreP2", score2);
 
         CarroPasajeros.Recoger += ActivarFinCarrera;
         CarroPasajerosP2.RecogerP2 += ActivarFinCarreraP2;
@@ -69,12 +89,20 @@ public class GestorPasajeros : MonoBehaviour {
         {
             scoreCarrera -= resta * Time.deltaTime;
             scoreTextCarrera.text = "Score Carrera\n" + scoreCarrera.ToString("N0");
+            if (scoreCarrera <= 0)
+            {
+                ResetPasajerosP1();
+            }
         }
 
         if (scoreCarrera2 > 0)
         {
             scoreCarrera2 -= resta * Time.deltaTime;
             scoreTextCarrera2.text = "Score Carrera\n" + scoreCarrera2.ToString("N0");
+            if (scoreCarrera2 <= 0)
+            {
+                ResetPasajerosP2();
+            }
         }
     }
 
@@ -169,19 +197,19 @@ public class GestorPasajeros : MonoBehaviour {
         {
             if (CarroPasajerosP2.saludP2 == 4)
             {
-                SaludP2.sprite = vida[3];
+                SaludP2.sprite = vidaT[3];
             }
             if (CarroPasajerosP2.saludP2 == 3)
             {
-                SaludP2.sprite = vida[2];
+                SaludP2.sprite = vidaT[2];
             }
             if (CarroPasajerosP2.saludP2 == 2)
             {
-                SaludP2.sprite = vida[1];
+                SaludP2.sprite = vidaT[1];
             }
             if (CarroPasajerosP2.saludP2 == 1)
             {
-                SaludP2.sprite = vida[0];
+                SaludP2.sprite = vidaT[0];
             }
             if (CarroPasajerosP2.saludP2 <= 0)
             {
@@ -240,6 +268,6 @@ public class GestorPasajeros : MonoBehaviour {
         mensaje.text = "El jugador 2 perdió su pasajero, puedes recoger uno";
         mensaje2.text = "Perdiste tu pasajero, debes buscar otro";
 
-        SaludP2.sprite = vida[3];
+        SaludP2.sprite = vidaT[3];
     }
 }

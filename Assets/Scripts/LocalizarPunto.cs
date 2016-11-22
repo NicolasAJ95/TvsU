@@ -5,6 +5,7 @@ public class LocalizarPunto : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] objetivo;
+    [SerializeField]
     private GameObject enemigo;
 
 	void Update () {
@@ -13,7 +14,6 @@ public class LocalizarPunto : MonoBehaviour {
         {
             if (CarroPasajerosP2.pasajeroP2)
             {
-                enemigo = GameObject.FindGameObjectWithTag("Player2");
                 transform.LookAt(enemigo.transform);
             }
             else
@@ -31,7 +31,6 @@ public class LocalizarPunto : MonoBehaviour {
         {
             if (CarroPasajeros.pasajero)
             {
-                enemigo = GameObject.FindGameObjectWithTag("Player");
                 transform.LookAt(enemigo.transform);
             }
             else
