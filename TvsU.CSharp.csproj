@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LocalizarPunto.cs" />
     <Compile Include="Assets\Scripts\LucesTraseras.cs" />
+    <Compile Include="Assets\Scripts\RuedaCargar.cs" />
     <Compile Include="Assets\Scripts\Transiciones.cs" />
   </ItemGroup>
   <ItemGroup>

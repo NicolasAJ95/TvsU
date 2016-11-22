@@ -15,11 +15,13 @@ public class CarroPasajerosP2 : MonoBehaviour
     public static bool pasajeroP2;
     [SerializeField]
     private CarController m_CarEnemi;
+    private AudioSource choque;
 
     private void Awake()
     {
         // get the car controller
         m_Car = GetComponent<CarController>();
+        choque = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -53,8 +55,9 @@ public class CarroPasajerosP2 : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
+        choque.Play();
         if (c.gameObject.CompareTag("Player") && pasajeroP2 == true && m_CarEnemi.CurrentSpeed >= 10f)
-        {
+        {            
             saludP2 -= 1;
             choqueP2 = true;
             CallEvent();
