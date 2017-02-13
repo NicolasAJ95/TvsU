@@ -23,7 +23,7 @@ public class FinJuego : MonoBehaviour {
         tiempo -= 1 * Time.deltaTime;
         tiempoP1.text = "Tiempo Restante\n" + tiempo.ToString("N0");
         tiempoP2.text = "Tiempo Restante\n" + tiempo.ToString("N0");
-        if (tiempo == 0)
+        if (tiempo <= 0)
         {
             SceneManager.LoadScene("Ganador");
         }
